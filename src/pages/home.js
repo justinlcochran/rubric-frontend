@@ -16,14 +16,15 @@ function Home(props) {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({projectID: params.projectID, submission: submission}
+                body: JSON.stringify({projectID: params.projectID, submission: submission})
             })
             console.log(response)
+
         } else {
             e.preventDefault()
             return false
         }
-        
+
     }
 
     return (
