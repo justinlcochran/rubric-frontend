@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import TopBar from "../components/topBar";
 import CategoryCard from "../components/categoryCard";
 import scoringContext from "../context/scoringContext";
@@ -6,26 +6,31 @@ import {useParams} from "react-router-dom";
 
 function Home(props) {
     let {rubric, submission} = useContext(scoringContext)
+    let [data, setData] = useState()
     let params = useParams()
-    console.log(submission)
+
+    useEffect(() => {
+        fetch(`https://jtabffsow22mn7n4k265qgfjfa0flkuh.lambda-url.us-east-1.on.aws/`)
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    setData(result);
+                }
+            )
+    }, [])
+    if (data) {
+        console.log(data)
+    }
     const submitScore = async (e) => {
         if (window.confirm('Are these scores correct and ready to submit to the database?')) {
             const serverURL = 'https://jtabffsow22mn7n4k265qgfjfa0flkuh.lambda-url.us-east-1.on.aws/'
-            console.log({
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({projectID: params.projectID, submission: submission})
-            })
             const response = await fetch(serverURL, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({projectID: params.projectID, submission: submission})
-            })
-            console.log(response.json())
+            });
 
         } else {
             e.preventDefault()

@@ -28,7 +28,6 @@ function CriterionBlock({ text, bottom, middle, top, criterionID }) {
         scores[`criterion${criterionID}`] = {text: text, criterionID: criterionID, score: e.target.id}
         setSubmission(scores)
     }
-    console.log(submission)
     return (
         (Object.keys(submission).includes(`criterion${criterionID}`)) ? (submission[`criterion${criterionID}`].score == 1) ?
 
