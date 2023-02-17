@@ -10,14 +10,15 @@ function Home(props) {
     console.log(submission)
     const submitScore = async (e) => {
         if (window.confirm('Are these scores correct and ready to submit to the database?')) {
-            const serverURL = 'https://rubricapi.azurewebsites.net/api/submit_score'
+            const serverURL = 'https://jtabffsow22mn7n4k265qgfjfa0flkuh.lambda-url.us-east-1.on.aws/'
             const response = await fetch(serverURL, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({projectID: params.projectID, submission: submission})
+                body: JSON.stringify({projectID: params.projectID, submission: submission}
             })
+            console.log(response)
         } else {
             e.preventDefault()
             return false
