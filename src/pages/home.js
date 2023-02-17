@@ -18,7 +18,7 @@ function Home(props) {
                 },
                 body: JSON.stringify({projectID: params.projectID, submission: submission})
             })
-            console.log(response)
+            console.log(response.body)
 
         } else {
             e.preventDefault()
