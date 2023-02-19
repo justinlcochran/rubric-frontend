@@ -1,23 +1,18 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {useNavigate} from "react-router-dom";
-function Splash(props) {
-    let [projectNumber, setProjectNumber] = useState()
+function Splash() {
     let navigate = useNavigate()
-
-
-    let projNumberSelect = () => {
-        let path = `/score/${document.getElementById('project').value}`
-        console.log(path)
-    }
 
     let rubricNav = () => {
         let project = prompt("Enter the Project Number: ")
-        navigate(`/score/${project}`)
+        if (project) {
+            navigate(`/score/${project}`)
+        }
     }
 
     return (
-        <div className={'h-screen flex bg-blue-300'}>
-                <button className={'p-8 bg-violet-300 text-8xl select-none rounded-lg m-auto'} onClick={rubricNav}>Start Scoring</button>
+        <div className={'h-screen flex bg-blue-800'}>
+                <button className={'p-8 bg-violet-300 text-6xl select-none rounded-lg mx-auto my-auto border-white border-2 shadow-xl font-sans'} onClick={rubricNav}>Start Scoring</button>
         </div>
     );
 }
