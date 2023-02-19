@@ -8,11 +8,13 @@ function TopBar(props) {
             <div className={'text-white bg-slate-800 col-span-1 shadow-xl py-4 m-0.5 rounded text-sm'}>
                 Project Number: {props.projectID}
             </div>
-            <div className={'text-white bg-slate-800 col-span-1 shadow-xl py-4 m-0.5 rounded text-sm'}>
-                {`Evaluation Completion: ${Math.round(Object.keys(submission).length/rubric.rubricElements.length * 100)}%`}
+            <div className={'text-white bg-slate-800 col-span-1 shadow-xl py-4 m-0.5 rounded text-sm grid grid-rows-2'}>
+                <p className={"text-xs"}>Evaluation Completion</p>
+                <p>{`${Math.round(Object.keys(submission).length/rubric.rubricElements.length * 100)}%`}</p>
             </div>
-            <div className={'text-white bg-slate-800 col-span-1 shadow-xl py-4 m-0.5 rounded text-sm'}>
-                {`Overall Score: ${Object.keys(submission).reduce((a, b) => a + parseInt(submission[b].score), 0)} / ${rubric.rubricElements.length * 5}`}
+            <div className={'text-white bg-slate-800 col-span-1 shadow-xl py-4 m-0.5 rounded text-sm grid grid-rows-2'}>
+                <p>Overall Score:</p>
+                <p>{`${Object.keys(submission).reduce((a, b) => a + parseInt(submission[b].score), 0)} / ${rubric.rubricElements.length * 5}`}</p>
             </div>
 
         </div>
