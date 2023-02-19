@@ -1,12 +1,11 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext} from 'react';
 import TopBar from "../components/topBar";
 import CategoryCard from "../components/categoryCard";
 import scoringContext from "../context/scoringContext";
 import {useNavigate, useParams} from "react-router-dom";
 
-function Home(props) {
+function Home() {
     let {rubric, submission} = useContext(scoringContext)
-    let [data, setData] = useState()
     let params = useParams()
     let navigate = useNavigate()
 
@@ -26,6 +25,7 @@ function Home(props) {
     const submitScore = async (e) => {
         if (window.confirm('Are these scores correct and ready to submit to the database?')) {
             const serverURL = 'https://jtabffsow22mn7n4k265qgfjfa0flkuh.lambda-url.us-east-1.on.aws/'
+            // eslint-disable-next-line no-unused-vars
             const response = await fetch(serverURL, {
                 method: "POST",
                 headers: {
@@ -50,7 +50,7 @@ function Home(props) {
                         title={item.title}
                         criteria={rubric.rubricElements.filter(element => (item.criteria.includes(element.criterionID)))}/>)}
             </div>
-            {(Object.keys(submission).length == rubric.rubricElements.length) ?
+            {(Object.keys(submission).length === rubric.rubricElements.length) ?
                 <div
                     className={'mx-auto p-2 bg-violet-500 hover:bg-violet-600 hover:shadow-xl text-white shadow rounded max-w-fit text-3xl select-none mb-4'} onClick={submitScore}>Submit</div>
                 : <div
