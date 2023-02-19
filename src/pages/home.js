@@ -57,7 +57,7 @@ function Home() {
 
     return (
         <div>
-            <TopBar projectID={params.projectID}/>
+            <TopBar projectNumber={params.projectNumber}/>
             <div className={'mt-16'}>
                 {rubric.categories.map(item =>
                     <CategoryCard
