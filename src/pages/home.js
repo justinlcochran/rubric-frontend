@@ -2,12 +2,13 @@ import React, {useContext, useEffect, useState} from 'react';
 import TopBar from "../components/topBar";
 import CategoryCard from "../components/categoryCard";
 import scoringContext from "../context/scoringContext";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 
 function Home(props) {
     let {rubric, submission} = useContext(scoringContext)
     let [data, setData] = useState()
     let params = useParams()
+    let navigate = useNavigate()
 
     // useEffect(() => {
     //     fetch(`https://jtabffsow22mn7n4k265qgfjfa0flkuh.lambda-url.us-east-1.on.aws/`)
@@ -24,15 +25,15 @@ function Home(props) {
 
     const submitScore = async (e) => {
         if (window.confirm('Are these scores correct and ready to submit to the database?')) {
-            const serverURL = 'https://wwfdiisxfn4zmijssy6glohkly0mohut.lambda-url.us-east-1.on.aws/'
+            const serverURL = 'https://jtabffsow22mn7n4k265qgfjfa0flkuh.lambda-url.us-east-1.on.aws/'
             const response = await fetch(serverURL, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({projectID: params.projectID, submission: submission, score: Object.keys(submission).reduce((a, b) => a + parseInt(submission[b].score), 0)})
+                body: JSON.stringify({projectNumber: params.projectNumber, submission: submission, score: Object.keys(submission).reduce((a, b) => a + parseInt(submission[b].score), 0)})
             });
-
+            navigate("/splash/")
         } else {
             e.preventDefault()
             return false

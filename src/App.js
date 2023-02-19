@@ -12,7 +12,7 @@ function App() {
       <BrowserRouter>
           <ScoreProvider>
               <Routes>
-                <Route path='/score/:projectID'  element={<Home />} />
+                <Route path='/score/:projectNumber'  element={<Home />} />
                 <Route path='/splash/' exact element={<Splash />}/>
                 <Route path='/report/' element={<ScoreReport />}/>
               </Routes>

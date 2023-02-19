@@ -27,7 +27,7 @@ function ScoreReport(props) {
                                 <h1 className={'mb-2 text-white select-none text-3xl'}>I</h1>
                                 <div className={`mx-auto`}>
                                     {data.filter(obj => obj.projectCategory === "I").filter(obj => obj.projectGrade === item).sort((a, b) => b.score - a.score).map(obj => <ReportCard
-                                        projectData={obj} score={12}/>)}
+                                        projectData={obj} score={obj.score}/>)}
                                 </div>
                             </div>
                             <div>
