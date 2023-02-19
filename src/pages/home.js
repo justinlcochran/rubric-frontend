@@ -9,27 +9,28 @@ function Home(props) {
     let [data, setData] = useState()
     let params = useParams()
 
-    useEffect(() => {
-        fetch(`https://jtabffsow22mn7n4k265qgfjfa0flkuh.lambda-url.us-east-1.on.aws/`)
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    setData(result);
-                }
-            )
-    }, [])
-    if (data) {
-        console.log(data)
-    }
+    // useEffect(() => {
+    //     fetch(`https://jtabffsow22mn7n4k265qgfjfa0flkuh.lambda-url.us-east-1.on.aws/`)
+    //         .then(res => res.json())
+    //         .then(
+    //             (result) => {
+    //                 setData(result);
+    //             }
+    //         )
+    // }, [])
+    // if (data) {
+    //     console.log(data)
+    // }
+
     const submitScore = async (e) => {
         if (window.confirm('Are these scores correct and ready to submit to the database?')) {
-            const serverURL = 'https://jtabffsow22mn7n4k265qgfjfa0flkuh.lambda-url.us-east-1.on.aws/'
+            const serverURL = 'https://wwfdiisxfn4zmijssy6glohkly0mohut.lambda-url.us-east-1.on.aws/'
             const response = await fetch(serverURL, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({projectID: params.projectID, submission: submission})
+                body: JSON.stringify({projectID: params.projectID, submission: submission, score: Object.keys(submission).reduce((a, b) => a + parseInt(submission[b].score), 0)})
             });
 
         } else {
