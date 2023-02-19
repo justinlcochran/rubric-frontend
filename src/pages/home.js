@@ -1,14 +1,28 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import TopBar from "../components/topBar";
 import CategoryCard from "../components/categoryCard";
 import scoringContext from "../context/scoringContext";
 import {useNavigate, useParams} from "react-router-dom";
 
+function useBeforeUnload(message) {
+    useEffect(() => {
+        const handler = (event) => {
+            event.preventDefault();
+            event.returnValue = message;
+        };
+
+        window.addEventListener("beforeunload", handler);
+        return () => {
+            window.removeEventListener("beforeunload", handler);
+        };
+    }, [message]);
+}
+
 function Home() {
     let {rubric, submission} = useContext(scoringContext)
     let params = useParams()
     let navigate = useNavigate()
-
+    useBeforeUnload("Are you sure you want to leave? Your changes will be lost.")
     // useEffect(() => {
     //     fetch(`https://jtabffsow22mn7n4k265qgfjfa0flkuh.lambda-url.us-east-1.on.aws/`)
     //         .then(res => res.json())
