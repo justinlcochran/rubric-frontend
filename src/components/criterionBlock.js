@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import { IonIcon } from '@ionic/react';
 import { closeCircle, checkmarkCircleOutline } from 'ionicons/icons';
 import scoringContext from "../context/scoringContext";
+import RubricAid from "./rubricAid";
 
 function CriterionBlock({ text, bottom, middle, top, criterionID }) {
     let {submission, setSubmission} = useContext(scoringContext)
@@ -38,13 +39,7 @@ function CriterionBlock({ text, bottom, middle, top, criterionID }) {
                 <div className={'col-span-1 align-bottom mt-auto text-center bg-amber-300 py-4'} onClick={handleScoreTap} id={3}>3</div>
                 <div className={'col-span-1 align-bottom mt-auto text-center bg-lime-300 py-4'} onClick={handleScoreTap} id={4}>4</div>
                 <div className={'col-span-1 align-bottom mt-auto text-center bg-green-300 py-4'} onClick={handleScoreTap} id={5}>5</div>
-            <div className={'col-span-5 grid grid-cols-5 bg-slate-100'}>
-                <div className={'col-span-1 text-black text-sm my-auto py-2'}>{bottom}</div>
-                <div className={'col-span-1'}></div>
-                <div className={'col-span-1 text-black text-sm my-auto py-2'}>{middle}</div>
-                <div className={'col-span-1'}></div>
-                <div className={'col-span-1 text-black text-sm my-auto py-2'}>{top}</div>
-            </div>
+            <RubricAid bottom={bottom} middle={middle} top={top} />
         </div>
 
         : (submission[`criterion${criterionID}`].score == 2) ?
@@ -55,13 +50,7 @@ function CriterionBlock({ text, bottom, middle, top, criterionID }) {
                 <div className={'align-bottom mt-auto text-center bg-amber-300 py-4 select-none'} onClick={handleScoreTap} id={3}>3</div>
                 <div className={'align-bottom mt-auto text-center bg-lime-300 py-4 select-none'} onClick={handleScoreTap} id={4}>4</div>
                 <div className={'align-bottom mt-auto text-center bg-green-300 py-4 select-none'} onClick={handleScoreTap} id={5}>5</div>
-            <div className={'col-span-5 grid grid-cols-5 bg-slate-100'}>
-                <div className={'col-span-1 text-black text-sm my-auto py-2'}>{bottom}</div>
-                <div className={'col-span-1'}></div>
-                <div className={'col-span-1 text-black text-sm my-auto py-2'}>{middle}</div>
-                <div className={'col-span-1'}></div>
-                <div className={'col-span-1 text-black text-sm my-auto py-2'}>{top}</div>
-            </div>
+            <RubricAid bottom={bottom} middle={middle} top={top} />
         </div>
         : (submission[`criterion${criterionID}`].score == 3) ?
         <div className={'grid grid-cols-5 pt-4 bg-amber-300 min-h-full rounded shadow border-4 border-slate-300 text-xl'}>
@@ -71,13 +60,7 @@ function CriterionBlock({ text, bottom, middle, top, criterionID }) {
                 <div className={'align-bottom mt-auto text-center bg-amber-300 py-4 drop-shadow-xl border-b-4 border-white select-none'} onClick={handleScoreTap} id={3}>3</div>
                 <div className={'align-bottom mt-auto text-center bg-lime-300 py-4 select-none'} onClick={handleScoreTap} id={4}>4</div>
                 <div className={'align-bottom mt-auto text-center bg-green-300 py-4 select-none'} onClick={handleScoreTap} id={5}>5</div>
-            <div className={'col-span-5 grid grid-cols-5 bg-slate-100'}>
-                <div className={'col-span-1 text-black text-sm my-auto py-2'}>{bottom}</div>
-                <div className={'col-span-1'}></div>
-                <div className={'col-span-1 text-black text-sm my-auto py-2'}>{middle}</div>
-                <div className={'col-span-1'}></div>
-                <div className={'col-span-1 text-black text-sm my-auto py-2'}>{top}</div>
-            </div>
+            <RubricAid bottom={bottom} middle={middle} top={top} />
         </div>
         : (submission[`criterion${criterionID}`].score == 4) ?
         <div className={'grid grid-cols-5 pt-4 bg-lime-300 min-h-full rounded shadow border-4 border-slate-300 text-xl'}>
@@ -87,13 +70,7 @@ function CriterionBlock({ text, bottom, middle, top, criterionID }) {
                 <div className={'align-bottom mt-auto text-center bg-amber-300 py-4 select-none'} onClick={handleScoreTap} id={3}>3</div>
                 <div className={'align-bottom mt-auto text-center bg-lime-300 py-4 drop-shadow-xl border-b-4 border-white select-none'} onClick={handleScoreTap} id={4}>4</div>
                 <div className={'align-bottom mt-auto text-center bg-green-300 py-4 select-none'} onClick={handleScoreTap} id={5}>5</div>
-            <div className={'col-span-5 grid grid-cols-5 bg-slate-100'}>
-                <div className={'col-span-1 text-black text-sm my-auto py-2'}>{bottom}</div>
-                <div className={'col-span-1'}></div>
-                <div className={'col-span-1 text-black text-sm my-auto py-2'}>{middle}</div>
-                <div className={'col-span-1'}></div>
-                <div className={'col-span-1 text-black text-sm my-auto py-2'}>{top}</div>
-            </div>
+            <RubricAid bottom={bottom} middle={middle} top={top} />
         </div>
         :
         <div className={'grid grid-cols-5 pt-4 bg-green-300 min-h-full rounded shadow border-4 border-slate-300 text-xl'}>
@@ -103,13 +80,7 @@ function CriterionBlock({ text, bottom, middle, top, criterionID }) {
                 <div className={'align-bottom mt-auto text-center bg-amber-300 py-4 select-none'} onClick={handleScoreTap} id={3}>3</div>
                 <div className={'align-bottom mt-auto text-center bg-lime-300 py-4 select-none'} onClick={handleScoreTap} id={4}>4</div>
                 <div className={'align-bottom mt-auto text-center bg-green-300 py-4 drop-shadow-xl border-b-4 border-white select-none'} onClick={handleScoreTap} id={5}>5</div>
-            <div className={'col-span-5 grid grid-cols-5 bg-slate-100'}>
-                <div className={'col-span-1 text-black text-sm my-auto py-2'}>{bottom}</div>
-                <div className={'col-span-1'}></div>
-                <div className={'col-span-1 text-black text-sm my-auto py-2'}>{middle}</div>
-                <div className={'col-span-1'}></div>
-                <div className={'col-span-1 text-black text-sm my-auto py-2'}>{top}</div>
-            </div>
+            <RubricAid bottom={bottom} middle={middle} top={top} />
         </div>
         :
         <div className={'grid grid-cols-5 pt-4 bg-gray-100 min-h-full rounded shadow border-4 border-slate-300 text-xl'}>
@@ -119,11 +90,7 @@ function CriterionBlock({ text, bottom, middle, top, criterionID }) {
                 <div className={'align-bottom mt-auto text-center bg-amber-300 py-4 select-none'} onClick={handleScoreTap} id={3}>3</div>
                 <div className={'align-bottom mt-auto text-center bg-lime-300 py-4 select-none'} onClick={handleScoreTap} id={4}>4</div>
                 <div className={'align-bottom mt-auto text-center bg-green-300 py-4 select-none'} onClick={handleScoreTap} id={5}>5</div>
-            <div className={'col-span-1 text-black text-sm my-auto py-2'}>{bottom}</div>
-            <div className={'col-span-1'}></div>
-            <div className={'col-span-1 text-black text-sm my-auto py-2'}>{middle}</div>
-            <div className={'col-span-1'}></div>
-            <div className={'col-span-1 text-black text-sm my-auto py-2'}>{top}</div>
+            <RubricAid bottom={bottom} middle={middle} top={top} />
 
         </div>
     );
