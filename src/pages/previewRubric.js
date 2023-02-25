@@ -3,6 +3,7 @@ import TopBar from "../components/topBar";
 import CategoryCard from "../components/categoryCard";
 import scoringContext from "../context/scoringContext";
 import {useNavigate, useParams} from "react-router-dom";
+import PresentationPrompt from "../components/presentationPrompt";
 
 function useBeforeUnload(message) {
     useEffect(() => {
@@ -57,7 +58,8 @@ function Preview() {
     return (
         <div>
             <TopBar projectNumber={"XX"}/>
-            <div className={'mt-16'}>
+            <div className={'mt-20'}>
+                <PresentationPrompt />
                 {rubric.categories.map(item =>
                     <CategoryCard
                         title={item.title}
