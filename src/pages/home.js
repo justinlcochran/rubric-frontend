@@ -48,7 +48,7 @@ function Home() {
                 },
                 body: JSON.stringify({projectNumber: params.projectNumber, submission: submission, score: Object.keys(submission).reduce((a, b) => a + parseInt(submission[b].score), 0)})
             });
-            navigate("/")
+            navigate("/judgemps23")
         } else {
             e.preventDefault()
             return false

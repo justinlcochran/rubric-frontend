@@ -14,8 +14,8 @@ function Splash() {
     }
 
     return (
-        <div className={'h-screen flex bg-blue-800'}>
-                <button className={'p-8 bg-violet-300 text-6xl select-none rounded-lg mx-auto my-auto border-white border-2 shadow-xl font-sans'} onClick={previewNav}>Rubric Preview</button>
+        <div className={'h-screen flex bg-gray-200'}>
+                <button className={'p-6 bg-blue-500 text-white text-6xl select-none rounded-lg mx-auto my-auto border-white border-2 shadow-xl font-sans'} onClick={previewNav}>Rubric Preview</button>
         </div>
     );
 }
