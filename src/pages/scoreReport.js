@@ -3,7 +3,7 @@ import ReportCard from "../components/reportCard";
 
 function ScoreReport(props) {
     let [data, setData] = useState(null)
-    const categories = ["3-4", "5-6", "7-8", "HS"]
+    const categories = ["3-4", "5-6", "7-8", "High School"]
     useEffect(() => {
         fetch(`https://wwfdiisxfn4zmijssy6glohkly0mohut.lambda-url.us-east-1.on.aws/`)
             .then(res => res.json())
@@ -26,14 +26,14 @@ function ScoreReport(props) {
                             <div>
                                 <h1 className={'mb-2 text-white select-none text-3xl'}>I</h1>
                                 <div className={`mx-auto`}>
-                                    {data.filter(obj => obj.projectCategory === "I").filter(obj => obj.projectGrade === item).sort((a, b) => b.score - a.score).map((obj, index) => <ReportCard
+                                    {data.filter(obj => obj.projectCategory === "Individual").filter(obj => obj.projectGrade === item).sort((a, b) => b.score - a.score).map((obj, index) => <ReportCard
                                         projectData={obj} score={obj.score} evals={obj.evals} ind={index}/>)}
                                 </div>
                             </div>
                             <div>
                                 <h1 className={'mb-2 text-white select-none text-3xl'}>G</h1>
                                 <div className={'mx-auto'}>
-                                    {data.filter(obj => obj.projectCategory === "G").filter(obj => obj.projectGrade === item).sort((a, b) => b.score - a.score).map((obj, index) => <ReportCard
+                                    {data.filter(obj => obj.projectCategory === "Group").filter(obj => obj.projectGrade === item).sort((a, b) => b.score - a.score).map((obj, index) => <ReportCard
                                         projectData={obj} score={obj.score} evals={obj.evals} ind={index}/>)}
                                 </div>
                             </div>
