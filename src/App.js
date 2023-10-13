@@ -1,4 +1,5 @@
 import './App.css';
+import '@aws-amplify/ui-react/styles.css';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Home from "./pages/home";
 import {ScoreProvider} from "./context/scoringContext";
@@ -22,7 +23,7 @@ function App() {
           <ScoreProvider>
               <Routes>
                 <Route path='/score23/:projectNumber'  element={<Home />} />
-                <Route path='/' exact element={<Splash />}/>
+                <Route path='/' exact element={<TeacherHome />}/>
                 <Route path='/preview' element={<Preview />}/>
                 <Route path='/report23/' element={<ScoreReport />}/>
                 <Route path='/judgemps23/' element={<Landing />}/>
@@ -36,4 +37,6 @@ function App() {
   );
 }
 
-export default withAuthenticator(App);
+export default withAuthenticator(App, {
+    hideSignUp: true
+});
