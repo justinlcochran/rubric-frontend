@@ -7,6 +7,13 @@ import ScoreReport from "./pages/scoreReport";
 import Preview from "./pages/previewRubric";
 import Landing from "./pages/landing";
 import ProjectEntry from "./pages/projectEntry";
+import OpenaiIntegrationTesting from "./pages/openaiIntegrationTesting";
+import TeacherHome from "./pages/teacherHome";
+import {Amplify} from 'aws-amplify';
+import awsconfig from './aws-exports';
+import { withAuthenticator } from '@aws-amplify/ui-react';
+
+Amplify.configure(awsconfig)
 
 function App() {
   return (
@@ -19,6 +26,9 @@ function App() {
                 <Route path='/preview' element={<Preview />}/>
                 <Route path='/report23/' element={<ScoreReport />}/>
                 <Route path='/judgemps23/' element={<Landing />}/>
+                <Route path='/pe' element={<ProjectEntry />}/>
+                <Route path='/ai' element={<OpenaiIntegrationTesting />}/>
+                <Route path='/teacher' element={<TeacherHome />} />
               </Routes>
           </ScoreProvider>
       </BrowserRouter>
@@ -26,4 +36,4 @@ function App() {
   );
 }
 
-export default App;
+export default withAuthenticator(App);

@@ -17,7 +17,7 @@ function ProjectEntry(props) {
             console.log(value);
         }
 
-        const response = await fetch('https://x336gulrsaplshc5k4owblvlgy0zbzym.lambda-url.us-east-1.on.aws/', {
+        const response = await fetch('https://t2j53wgphuldk5mdexn5b2ejxa0mjxhv.lambda-url.us-east-1.on.aws/', {
             method: 'POST',
             headers: {'Content-Type': 'text/csv'},
             body: formData,
