@@ -1,6 +1,7 @@
 import React, {useEffect, useContext, useState} from 'react';
 import SubmissionModal from "../components/submissionModal";
 import userContext from "../context/userContext";
+import Loader from "../components/loader";
 
 function TeacherHome(props) {
     const [submissionModal, setSubmissionModal] = useState(null);
@@ -32,6 +33,7 @@ function TeacherHome(props) {
 
     return (
         <>
+            {(!schoolData) ? <Loader /> : <>
         <div>
             <p className={"font-bold text-2xl"}>York International Science Fair Dashboard</p>
             <p>!!! Submission Deadline: 3/31 !!!</p>
@@ -64,7 +66,7 @@ function TeacherHome(props) {
             </div>
 
         </div>
-            {(submissionModal) && <SubmissionModal modalContent={submissionModal} setModalContent={setSubmissionModal} />}
+            {(submissionModal) && <SubmissionModal modalContent={submissionModal} setModalContent={setSubmissionModal} />}</>}
         </>
 
     );
