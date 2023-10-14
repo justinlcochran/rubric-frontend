@@ -5,7 +5,7 @@ function TeacherHome(props) {
     const [submissionModal, setSubmissionModal] = useState(null);
     const bands = ['K-2', '3-4', '5-6', '7-8', 'HS']
     const handleGridClick = (e) => {
-        setSubmissionModal({gradeBand: e.target.id.slice(0, -1), type: e.target.id[e.target.id.length-1], projectName: "", studentNames: {one: "", two: "", thr: ""}});
+        setSubmissionModal({gradeBand: e.target.id.slice(0, -1), type: e.target.id[e.target.id.length-1], projectName: "", studentNames: {one: {first: "", last: ""}, two: {first: "", last: ""}, thr: {first: "", last: ""}}});
     }
     const [schools, setSchools] = useState(null)
 
@@ -22,8 +22,6 @@ function TeacherHome(props) {
     useEffect(() => {
         getSchools();
     }, [])
-
-    console.log(schools)
 
 
     return (
