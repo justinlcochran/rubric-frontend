@@ -27,7 +27,7 @@ function TeacherHome(props) {
 
     useEffect(() => {
         getSchools();
-    }, [getSchools, user.userAttributes])
+    }, [user.userAttributes])
 
 
     return (
