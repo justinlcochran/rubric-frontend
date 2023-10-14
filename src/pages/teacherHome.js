@@ -7,7 +7,7 @@ function TeacherHome(props) {
     const handleGridClick = (e) => {
         setSubmissionModal({gradeBand: e.target.id.slice(0, -1), type: e.target.id[e.target.id.length-1], projectName: "", studentNames: {one: {}, two: {}, thr: {}}});
     }
-    const [schools, setSchools] = useState(null)
+    const [schoolData, setSchoolData] = useState(null)
 
     const getSchools = () => {
         const url = new URL(`https://c1gqgecccj.execute-api.us-east-1.amazonaws.com/dev/projectData`)
@@ -16,10 +16,11 @@ function TeacherHome(props) {
             .then(res => res.json())
             .then(
                 (result) => {
-                    setSchools(result);
+                    setSchoolData(result);
                 }
             )
     }
+    console.log(schoolData)
 
     useEffect(() => {
         getSchools();
