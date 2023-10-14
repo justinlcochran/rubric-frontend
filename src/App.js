@@ -13,6 +13,7 @@ import TeacherHome from "./pages/teacherHome";
 import {Amplify} from 'aws-amplify';
 import awsconfig from './aws-exports';
 import { withAuthenticator } from '@aws-amplify/ui-react';
+import {UserContextProvider} from "./context/userContext";
 
 Amplify.configure(awsconfig)
 
@@ -20,6 +21,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+          <UserContextProvider>
           <ScoreProvider>
               <Routes>
                 <Route path='/score23/:projectNumber'  element={<Home />} />
@@ -32,6 +34,7 @@ function App() {
                 <Route path='/teacher' element={<TeacherHome />} />
               </Routes>
           </ScoreProvider>
+          </UserContextProvider>
       </BrowserRouter>
     </div>
   );

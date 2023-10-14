@@ -1,5 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useContext, useState} from 'react';
 import SubmissionModal from "../components/submissionModal";
+import userContext from "../context/userContext";
 
 function TeacherHome(props) {
     const [submissionModal, setSubmissionModal] = useState(null);
@@ -8,10 +9,11 @@ function TeacherHome(props) {
         setSubmissionModal({gradeBand: e.target.id.slice(0, -1), type: e.target.id[e.target.id.length-1], projectName: "", studentNames: {one: {}, two: {}, thr: {}}});
     }
     const [schoolData, setSchoolData] = useState(null)
+    const user = useContext(userContext)
 
     const getSchools = () => {
         const url = new URL(`https://c1gqgecccj.execute-api.us-east-1.amazonaws.com/dev/projectData`)
-        url.searchParams.append('school', 'York International School')
+        url.searchParams.append('sub', user.userAttributes.sub)
         fetch(url)
             .then(res => res.json())
             .then(
@@ -24,7 +26,7 @@ function TeacherHome(props) {
 
     useEffect(() => {
         getSchools();
-    }, [])
+    }, [user.userAttributes])
 
 
     return (
