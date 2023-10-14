@@ -23,6 +23,7 @@ function TeacherHome(props) {
                     }
                 )
     }}
+    console.log(user)
     console.log(schoolData)
 
     useEffect(() => {
