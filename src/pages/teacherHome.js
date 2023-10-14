@@ -5,12 +5,14 @@ function TeacherHome(props) {
     const [submissionModal, setSubmissionModal] = useState(null);
     const bands = ['K-2', '3-4', '5-6', '7-8', 'HS']
     const handleGridClick = (e) => {
-        setSubmissionModal({gradeBand: e.target.id.slice(0, -1), type: e.target.id[e.target.id.length-1], projectName: "", studentNames: {one: {first: "", last: ""}, two: {first: "", last: ""}, thr: {first: "", last: ""}}});
+        setSubmissionModal({gradeBand: e.target.id.slice(0, -1), type: e.target.id[e.target.id.length-1], projectName: "", studentNames: {one: {}, two: {}, thr: {}}});
     }
     const [schools, setSchools] = useState(null)
 
     const getSchools = () => {
-        fetch(`https://ngzd2uftxfmlkfyjw34aptltmi0hlutk.lambda-url.us-east-1.on.aws/`)
+        const url = new URL(`https://c1gqgecccj.execute-api.us-east-1.amazonaws.com/dev/projectData`)
+        url.searchParams.append('school', 'York International School')
+        fetch(url)
             .then(res => res.json())
             .then(
                 (result) => {
