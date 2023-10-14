@@ -12,16 +12,17 @@ function TeacherHome(props) {
     const user = useContext(userContext)
 
     const getSchools = () => {
-        const url = new URL(`https://c1gqgecccj.execute-api.us-east-1.amazonaws.com/dev/projectData`)
-        url.searchParams.append('sub', user.userAttributes.sub)
-        fetch(url)
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    setSchoolData(result);
-                }
-            )
-    }
+        if (user.userAttributes) {
+            const url = new URL(`https://c1gqgecccj.execute-api.us-east-1.amazonaws.com/dev/projectData`)
+            url.searchParams.append('sub', user.userAttributes.sub)
+            fetch(url)
+                .then(res => res.json())
+                .then(
+                    (result) => {
+                        setSchoolData(result);
+                    }
+                )
+    }}
     console.log(schoolData)
 
     useEffect(() => {
