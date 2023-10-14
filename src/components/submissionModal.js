@@ -10,6 +10,28 @@ function SubmissionModal({modalContent, setModalContent}) {
         if ( e.target.id === "wrapper" ) onClose();
     }
 
+    const handleProjectNameChange = (e) => {
+        let currentModal = modalContent
+        currentModal.projectName = e.target.value
+        setModalContent(currentModal)
+    }
+
+    const handleStudentFirstNameChange = (e) => {
+        let currentModal = modalContent
+        currentModal.studentNames[e.target.id.slice(0,3)].firstName = e.target.value
+        setModalContent(currentModal)
+    }
+
+    const handleStudentLastNameChange = (e) => {
+        let currentModal = modalContent
+        currentModal.studentNames[e.target.id.slice(0,3)].lastName = e.target.value
+        setModalContent(currentModal)
+    }
+
+    const submitProject = () => {
+        console.log(modalContent)
+    }
+
     return (
         <div className={"fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center flex flex-col z-10"} id="wrapper" onClick={handleClose}>
             <div className={"flex flex-col"}>
@@ -19,9 +41,60 @@ function SubmissionModal({modalContent, setModalContent}) {
                             <path fill="#fff" d="M14.12 12l5.3-5.3c.59-.59.59-1.54 0-2.12-.59-.59-1.54-.59-2.12 0L12 9.88 6.7 4.58c-.59-.59-1.54-.59-2.12 0-.59.59-.59 1.54 0 2.12L9.88 12l-5.3 5.3c-.59.59-.59 1.54 0 2.12.59.59 1.54.59 2.12 0L12 14.12l5.3 5.3c.59.59 1.54.59 2.12 0 .59-.59.59-1.54 0-2.12L14.12 12z"/>
                         </svg>
                     </button>
-                    <div>
-                        <p>{(modalContent[modalContent.length-1] === "I") ? modalContent+"ndividual" : modalContent+"roup"}</p>
-                    </div>
+                    {(modalContent.type === "I") ?
+                        <div>
+                            <p>{modalContent.gradeBand} Individual</p>
+                            <input type="text" id="projectName" onChange={handleProjectNameChange}
+                                   className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                   placeholder={"Project Name"} title={"Search standard codes or titles."} />
+                            <input type="text" id="oneFirst" onChange={handleStudentFirstNameChange}
+                                   className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                   placeholder={"Project Name"} title={"Search standard codes or titles."} />
+                            <input type="text" id="oneLast" onChange={handleStudentLastNameChange}
+                                   className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                   placeholder={"Project Name"} title={"Search standard codes or titles."} />
+                        </div>
+                        :
+                        <div>
+                            <p>{modalContent.gradeBand} Group</p>
+                            <input type="text" id="projectName" onChange={handleProjectNameChange}
+                                   className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                   placeholder={"Project Name"} title={"projectName"} />
+                            <div className={'flex'}>
+
+                                <input type="text" id="oneFirst" onChange={handleStudentFirstNameChange}
+                                       className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                       placeholder={"Project Name"} title={"firstName"} />
+                                <input type="text" id="oneLast" onChange={handleStudentLastNameChange}
+                                       className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                       placeholder={"Project Name"} title={"lastName"} />
+                            </div>
+
+                            <div className={'flex'}>
+
+                                <input type="text" id="twoFirst" onChange={handleStudentFirstNameChange}
+                                       className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                       placeholder={"Project Name"} title={"lastName"} />
+                                <input type="text" id="twoLast" onChange={handleStudentLastNameChange}
+                                       className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                       placeholder={"Project Name"} title={"firstName"} />
+                            </div>
+
+                            <div className={'flex'}>
+
+                                <input type="text" id="thrFirst" onChange={handleStudentFirstNameChange}
+                                       className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                       placeholder={"Project Name"} title={"firstName"} />
+                                <input type="text" id="thrLast" onChange={handleStudentLastNameChange}
+                                       className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                       placeholder={"Project Name"} title={"lastName"} />
+                            </div>
+
+                        </div>
+                    }
+                    <button onClick={submitProject} className="relative self-center rounded bottom-12 align-middle m-2 p-2 bg-green-600 text-white font-bold px-10 text-xl hover:bg-green-700">
+                        <p>Submit Project</p>
+                    </button>
                 </div>
             </div>
         </div>
