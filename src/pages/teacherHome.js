@@ -14,7 +14,7 @@ function TeacherHome(props) {
     const getSchools = () => {
         if (user.userAttributes) {
             const url = new URL(`https://c1gqgecccj.execute-api.us-east-1.amazonaws.com/dev/projectData`)
-            url.searchParams.append('sub', user.userAttributes.school)
+            url.searchParams.append('sub', user.userAttributes.sub)
             fetch(url)
                 .then(res => res.json())
                 .then(
@@ -23,12 +23,11 @@ function TeacherHome(props) {
                     }
                 )
     }}
-    console.log(user)
     console.log(schoolData)
 
     useEffect(() => {
         getSchools();
-    }, [user.userAttributes])
+    }, [getSchools, user.userAttributes])
 
 
     return (
