@@ -63,7 +63,7 @@ function TeacherHome(props) {
                 <div className={"bg-blue-400 w-[70%] rounded p-4"}>
                     <p>Submitted Projects</p>
                     <div className={'flex flex-col'}>
-                        {schoolData.projects.map(project => <div><p>{project.name}</p>{project.students.map(student => <p>{student.firstName} {student.lastName}</p>)}</div>)}
+                        {schoolData.projects.map(project => <div className={'p-4 bg-blue-200 shadow shadow-lg m-4'}><p>{project.name}</p>{project.students.map(student => <p>{student.firstName} {student.lastName}</p>)}</div>)}
                     </div>
                 </div>
                 <div className={"w-[25%] bg-amber-400 rounded p-4"}></div>
