@@ -81,7 +81,7 @@ function SubmissionModal({modalContent, setModalContent, schoolData, setSchoolDa
                             <input type="text" id="projectName" onChange={handleProjectNameChange}
                                    className="m-2 block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                    placeholder={"Project Name"} title={"projectName"} />
-                            <p>Student 1:</p>
+                            <p>Student 1</p>
                             <div className={'flex'}>
 
                                 <input type="text" id="oneFirst" onChange={handleStudentFirstNameChange}
@@ -91,17 +91,17 @@ function SubmissionModal({modalContent, setModalContent, schoolData, setSchoolDa
                                        className="m-2 block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                        placeholder={"Student Last Name"} title={"lastName"} />
                             </div>
-                            <p>Student 2:</p>
+                            <p>Student 2</p>
                             <div className={'flex'}>
 
                                 <input type="text" id="twoFirst" onChange={handleStudentFirstNameChange}
                                        className="m-2 block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                       placeholder={"Student First Name"} title={"lastName"} />
+                                       placeholder={"Student First Name"} title={"firstName"} />
                                 <input type="text" id="twoLast" onChange={handleStudentLastNameChange}
                                        className="m-2 block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                       placeholder={"Project Name"} title={"firstName"} />
+                                       placeholder={"Student Last Name"} title={"lastName"} />
                             </div>
-                            <p>Student 3:</p>
+                            <p>Student 3</p>
                             <div className={'flex'}>
 
                                 <input type="text" id="thrFirst" onChange={handleStudentFirstNameChange}
@@ -109,7 +109,7 @@ function SubmissionModal({modalContent, setModalContent, schoolData, setSchoolDa
                                        placeholder={"Student First Name"} title={"firstName"} />
                                 <input type="text" id="thrLast" onChange={handleStudentLastNameChange}
                                        className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                       placeholder={"Student First Name"} title={"lastName"} />
+                                       placeholder={"Student Last Name"} title={"lastName"} />
                             </div>
 
                         </div>

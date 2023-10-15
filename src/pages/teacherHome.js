@@ -38,7 +38,7 @@ function TeacherHome(props) {
         <div>
             <p className={"font-bold text-2xl"}>{schoolData.school.name} Science Fair Dashboard</p>
             <p>!!! Submission Deadline: 3/31 !!!</p>
-            <div className={"p-4 bg-teal-100 border-teal-200 border-2 flex justify-between mx-12 mb-4 shadow-xl rounded"}>
+            <div className={"p-4 bg-teal-100 border-teal-200 border-2 flex justify-between mx-12 mb-6 shadow-xl rounded"}>
                 {schoolData.school.gradeBands.map(band => (
                     <div className={"flex flex-col"}>
                         <p className={"font-bold text-2xl"}>{band}</p>
@@ -52,7 +52,7 @@ function TeacherHome(props) {
                                     <div id={band+" I"} className={"border bg-green-300 p-4 rounded"}>All {band} Individual Projects Submitted!</div>
                                 </div>}
                         </div>
-                        <div className={"my-2"}>
+                        <div className={"my-2 mx-4"}>
                             <p>Group</p>
                             {(schoolData.projects.filter(item => item.gradeBand === band && item.type === "G").length < 2) ?
                                 <div className={"flex gap-2"}>
