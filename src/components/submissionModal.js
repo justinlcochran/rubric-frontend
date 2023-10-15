@@ -33,7 +33,6 @@ function SubmissionModal({modalContent, setModalContent}) {
     }
 
     const submitProjectDocument = () => {
-        if (user.userAttributes) {
             const url = new URL(`https://c1gqgecccj.execute-api.us-east-1.amazonaws.com/dev/insertProject`)
             fetch(url, {
                 method: 'POST',
@@ -47,10 +46,10 @@ function SubmissionModal({modalContent, setModalContent}) {
                 .then(res => res.json())
                 .then(
                     (result) => {
-                        setSchoolData(result);
+                        setModalContent(null);
                     }
                 )
-        }}
+        }
 
     return (
         <div className={"fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center flex flex-col z-10"} id="wrapper" onClick={handleClose}>
@@ -117,7 +116,7 @@ function SubmissionModal({modalContent, setModalContent}) {
                     }
 
                 </div>
-                <button onClick={submitProject} className="relative self-center rounded bottom-12 align-middle m-2 p-2 bg-green-600 text-white font-bold px-10 text-xl hover:bg-green-700">
+                <button onClick={submitProjectDocument} className="relative self-center rounded bottom-12 align-middle m-2 p-2 bg-green-600 text-white font-bold px-10 text-xl hover:bg-green-700">
                     <p>Submit Project</p>
                 </button>
             </div>
