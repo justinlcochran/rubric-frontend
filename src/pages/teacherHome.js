@@ -37,10 +37,10 @@ function TeacherHome(props) {
         <>
             {(!schoolData) ? <Loader /> : <>
         <div>
-            <p className={"font-bold text-2xl"}>{schoolData.name} Science Fair Dashboard</p>
+            <p className={"font-bold text-2xl"}>{schoolData.school.name} Science Fair Dashboard</p>
             <p>!!! Submission Deadline: 3/31 !!!</p>
             <div className={"p-4 bg-teal-100 border-teal-200 border-2 flex justify-between mx-12 mb-4 shadow-xl rounded"}>
-                {schoolData.gradeBands.map(band => (
+                {schoolData.school.gradeBands.map(band => (
                     <div className={"flex flex-col"}>
                         <p className={"font-bold text-2xl"}>{band}</p>
                         <div className={"my-2"}>
@@ -63,6 +63,9 @@ function TeacherHome(props) {
             <div className={"flex w-[80%] mx-auto justify-between"}>
                 <div className={"bg-blue-400 w-[70%] rounded p-4"}>
                     <p>Submitted Projects</p>
+                    <div className={'flex flex-col'}>
+                        {schoolData.projects.map(project => <div><p>{project.title}</p>{project.students.map(student => <p>{student.firstName} {student.lastName}</p>)}</div>)}
+                    </div>
                 </div>
                 <div className={"w-[25%] bg-amber-400 rounded p-4"}></div>
             </div>
@@ -74,4 +77,6 @@ function TeacherHome(props) {
     );
 }
 
-export default withAuthenticator(TeacherHome);
+export default withAuthenticator(TeacherHome, {
+    hideSignUp: true
+});
