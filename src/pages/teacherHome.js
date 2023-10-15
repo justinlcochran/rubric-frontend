@@ -42,31 +42,37 @@ function TeacherHome(props) {
                 {schoolData.school.gradeBands.map(band => (
                     <div className={"flex flex-col"}>
                         <p className={"font-bold text-2xl"}>{band}</p>
-                        <div className={"my-2"}>
+                        <div className={"my-2 mx-4"}>
                             <p>Individual</p>
+                            {(schoolData.school.filter(item => item.gradeBand === band && item.type === "I").length < 2) ?
                             <div className={"flex gap-2"}>
-                                <div id={band+" I"} onClick={handleGridClick} className={"border bg-amber-200 p-4 rounded"}>A</div>
-                                <div id={band+" I"} onClick={handleGridClick} className={"border bg-amber-200 p-4 rounded"}>X</div>
+                                <div id={band+" I"} onClick={handleGridClick} className={"border bg-amber-200 p-4 rounded hover:bg-amber-100 cursor-pointer"}>Submit a {band} individual project ({2 - schoolData.school.filter(item => item.gradeBand === band && item.type === "I").length} remaining slots)</div>
                             </div>
+                                : <div className={"flex gap-2"}>
+                                    <div id={band+" I"} className={"border bg-green-300 p-4 rounded"}>All {band} Individual Projects Submitted!</div>
+                                </div>}
                         </div>
                         <div className={"my-2"}>
                             <p>Group</p>
-                            <div className={"flex gap-2"}>
-                                <div id={band+" G"} onClick={handleGridClick} className={"border bg-blue-200 p-4"}>A</div>
-                                <div id={band+" G"} onClick={handleGridClick} className={"border bg-blue-200 p-4"}>A</div>
+                            {(schoolData.school.filter(item => item.gradeBand === band && item.type === "G").length < 2) ?
+                                <div className={"flex gap-2"}>
+                                <div id={band+" G"} onClick={handleGridClick} className={"border bg-amber-200 p-4 rounded hover:bg-amber-100 cursor-pointer"}>Submit a {band} group project ({2 - schoolData.school.filter(item => item.gradeBand === band && item.type === "G").length} remaining slots)</div>
                             </div>
+                                : <div className={"flex gap-2"}>
+                                    <div id={band+" G"} className={"border bg-green-300 p-4 rounded"}>All {band} Group Projects Submitted!</div>
+                                </div>}
                         </div>
                     </div>
                         ))}
             </div>
             <div className={"flex w-[80%] mx-auto justify-between"}>
-                <div className={"bg-blue-400 w-[70%] rounded p-4"}>
-                    <p>Submitted Projects</p>
+                <div className={"bg-blue-300 w-[70%] rounded p-4 shadow shadow-lg"}>
+                    <p className={'font-bold text-lg'}>Submitted Projects</p>
                     <div className={'flex flex-col'}>
                         {schoolData.projects.map(project => <div className={'p-4 bg-blue-200 shadow shadow-lg m-4'}><p>{project.name}</p>{project.students.map(student => <p>{student.firstName} {student.lastName}</p>)}</div>)}
                     </div>
                 </div>
-                <div className={"w-[25%] bg-amber-400 rounded p-4"}></div>
+                <div className={"w-[25%] bg-amber-400 rounded p-4 shadow shadow-lg"}></div>
             </div>
 
         </div>

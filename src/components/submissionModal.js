@@ -89,7 +89,7 @@ function SubmissionModal({modalContent, setModalContent, schoolData, setSchoolDa
                                        placeholder={"Student First Name"} title={"firstName"} />
                                 <input type="text" id="oneLast" onChange={handleStudentLastNameChange}
                                        className="m-2 block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                       placeholder={"Project Name"} title={"lastName"} />
+                                       placeholder={"Student Last Name"} title={"lastName"} />
                             </div>
                             <p>Student 2:</p>
                             <div className={'flex'}>
