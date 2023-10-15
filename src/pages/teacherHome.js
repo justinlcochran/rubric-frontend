@@ -1,7 +1,9 @@
 import React, {useEffect, useContext, useState} from 'react';
+import '@aws-amplify/ui-react/styles.css';
 import SubmissionModal from "../components/submissionModal";
 import userContext from "../context/userContext";
 import Loader from "../components/loader";
+import {withAuthenticator} from "@aws-amplify/ui-react";
 
 function TeacherHome(props) {
     const [submissionModal, setSubmissionModal] = useState(null);
@@ -72,4 +74,4 @@ function TeacherHome(props) {
     );
 }
 
-export default TeacherHome;
+export default withAuthenticator(TeacherHome);
