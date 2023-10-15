@@ -32,6 +32,26 @@ function SubmissionModal({modalContent, setModalContent}) {
         console.log(modalContent)
     }
 
+    const submitProjectDocument = () => {
+        if (user.userAttributes) {
+            const url = new URL(`https://c1gqgecccj.execute-api.us-east-1.amazonaws.com/dev/insertProject`)
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    projectData: modalContent
+                }),
+            })
+                .then(res => res.json())
+                .then(
+                    (result) => {
+                        setSchoolData(result);
+                    }
+                )
+        }}
+
     return (
         <div className={"fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center flex flex-col z-10"} id="wrapper" onClick={handleClose}>
             <div className={"flex flex-col"}>
