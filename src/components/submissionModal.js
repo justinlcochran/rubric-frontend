@@ -1,6 +1,6 @@
 import React from 'react';
 
-function SubmissionModal({modalContent, setModalContent}) {
+function SubmissionModal({modalContent, setModalContent, schoolData, setSchoolData}) {
 
     const onClose = () => {
         setModalContent(null);
@@ -28,11 +28,7 @@ function SubmissionModal({modalContent, setModalContent}) {
         setModalContent(currentModal)
     }
 
-    const submitProject = () => {
-        console.log(modalContent)
-    }
-
-    const submitProjectDocument = () => {
+    const submitProjectDocument = async () => {
             const url = new URL(`https://c1gqgecccj.execute-api.us-east-1.amazonaws.com/dev/insertProject`)
             fetch(url, {
                 method: 'POST',
@@ -45,7 +41,11 @@ function SubmissionModal({modalContent, setModalContent}) {
             })
                 .then(res => res.json())
                 .then(
-                    (result) => {
+                    async (result) => {
+                        console.log(result)
+                        let newSchoolData = {...schoolData};
+                        newSchoolData.projects.push(result);
+                        await setSchoolData(newSchoolData);
                         setModalContent(null);
                     }
                 )
