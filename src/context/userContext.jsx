@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
-import {Amplify, Auth} from "aws-amplify";
+import {Amplify, Auth, Hub} from "aws-amplify";
 import awsconfig from "../aws-exports";
 Amplify.configure(awsconfig)
 
