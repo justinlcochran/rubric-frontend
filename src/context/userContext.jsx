@@ -15,8 +15,20 @@ export const UserContextProvider = ({children}) => {
     const [userContext, setUserContext] = useState(null)
 
     useEffect(() => {
-        // Fetch the user attributes when the component mounts
-        fetchUserAttributes();
+        const checkAuthAndFetchAttributes = async () => {
+            try {
+                // Check if the user is authenticated
+                await Auth.currentAuthenticatedUser();
+
+                // If the user is authenticated, fetch user attributes
+                fetchUserAttributes();
+            } catch (error) {
+                console.error('Error fetching user attributes:', error);
+            }
+        };
+
+        // Call the function to check authentication and fetch attributes
+        checkAuthAndFetchAttributes();
     }, []);
 
     const fetchUserAttributes = async () => {
