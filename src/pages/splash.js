@@ -12,10 +12,15 @@ function Splash() {
     let previewNav = () => {
         navigate(`/preview`)
     }
+    const teacherNav = () => {
+        navigate('/teacher')
+    }
 
     return (
         <div className={'h-screen flex bg-gray-200'}>
-                <button className={'p-6 bg-blue-500 text-white text-6xl select-none rounded-lg mx-auto my-auto border-white border-2 shadow-xl font-sans'} onClick={previewNav}>Rubric Preview</button>
+            <button className={'p-6 bg-blue-500 text-white text-6xl select-none rounded-lg mx-auto my-auto border-white border-2 shadow-xl font-sans'} onClick={teacherNav}>Teacher Dashboard</button>
+
+            <button className={'p-6 bg-blue-500 text-white text-6xl select-none rounded-lg mx-auto my-auto border-white border-2 shadow-xl font-sans'} onClick={previewNav}>Rubric Preview</button>
         </div>
     );
 }

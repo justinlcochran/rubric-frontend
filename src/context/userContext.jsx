@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
-import {Amplify, Auth} from "aws-amplify";
+import {Amplify, Auth, Hub} from "aws-amplify";
 import awsconfig from "../aws-exports";
 Amplify.configure(awsconfig)
 
@@ -14,25 +14,41 @@ export const UserContextProvider = ({children}) => {
     const [userAttributes, setUserAttributes] = useState(null)
     const [userContext, setUserContext] = useState(null)
 
-    useEffect(() => {
-        // Fetch the user attributes when the component mounts
-        fetchUserAttributes();
-    }, []);
-
     const fetchUserAttributes = async () => {
         try {
-            // Get the current authenticated user
             const currentUser = await Auth.currentAuthenticatedUser();
-
-            // Get the user attributes
             const attributes = currentUser.attributes;
-
-            // Store the user attributes in state
             setUserAttributes(attributes);
         } catch (error) {
             console.error('Error fetching user attributes:', error);
         }
     };
+
+    useEffect(() => {
+        const checkUserAuth = async () => {
+            try {
+                await Auth.currentAuthenticatedUser();
+                // If the user is authenticated, fetch user attributes
+                fetchUserAttributes();
+            } catch (error) {
+                console.error('Error checking user authentication:', error);
+            }
+        };
+
+        // Check user authentication on component mount
+        checkUserAuth();
+
+        // Listen for Hub events for authentication changes
+        const hubListener = Hub.listen('auth', ({ payload: { event } }) => {
+            if (event === 'signIn') {
+                // Trigger fetching user attributes when signed in
+                fetchUserAttributes();
+            }
+        });
+
+        // Clean up the Hub listener on component unmount
+        return () => hubListener();
+    }, []);
 
 
     let contextData = {
