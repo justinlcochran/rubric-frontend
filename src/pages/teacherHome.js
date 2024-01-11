@@ -72,8 +72,11 @@ function TeacherHome(props) {
                         {schoolData.projects.map(project => <div className={'p-4 bg-blue-200 shadow shadow-lg m-4'}><p>{project.name}</p>{project.students.map(student => <p>{student.firstName} {student.lastName}</p>)}</div>)}
                     </div>
                 </div>
-                <div className={"w-[25%] bg-amber-400 rounded p-4 shadow shadow-lg"}>
-                    <div className={'m-2 bg-blue-600 font-bold text-white hover:bg-blue-500 cursor-pointer'}><a target="_blank" rel="noopener noreferrer" href={'https://ucarecdn.com/83bc9586-210b-49b8-bcc3-06bb92dcdcc3/ScienceFairRules.pdf'}>Science Fair Rules</a></div>
+                <div className={"w-[25%] bg-amber-200 rounded p-4 shadow shadow-lg flex flex-col"}>
+                    <p className={'font-bold text-lg my-2'}>Resources</p>
+                    <div className={'m-2 bg-blue-500 font-bold text-white hover:bg-blue-400 cursor-pointer p-2 border-white border-2'}><a target="_blank" rel="noopener noreferrer" href={'https://ucarecdn.com/83bc9586-210b-49b8-bcc3-06bb92dcdcc3/ScienceFairRules.pdf'}>Science Fair Rules</a></div>
+                    <div className={'m-2 bg-blue-500 font-bold text-white hover:bg-blue-400 cursor-pointer p-2 border-white border-2'}><a target="_blank" rel="noopener noreferrer" href={'https://ucarecdn.com/a1bf6f07-2bba-475c-becc-90fbf96afd47/ElementaryStudentPacket.pdf'}>Science Fair Rules</a></div>
+
                 </div>
             </div>
 
