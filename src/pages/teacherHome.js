@@ -37,7 +37,7 @@ function TeacherHome(props) {
             {(!schoolData) ? <Loader /> : <>
         <div>
             <p className={"font-bold text-2xl"}>{schoolData.school.name} Science Fair Dashboard</p>
-            <p>!!! Submission Deadline: 3/31 !!!</p>
+            <p>!!! Submission Deadline: 3/26 !!!</p>
             <div className={"p-4 bg-teal-100 border-teal-200 border-2 flex justify-between mx-12 mb-6 shadow-xl rounded"}>
                 {schoolData.school.gradeBands.map(band => (
                     <div className={"flex flex-col"}>
