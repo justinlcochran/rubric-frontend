@@ -74,10 +74,15 @@ function TeacherHome(props) {
                 </div>
                 <div className={"w-[25%] bg-amber-200 rounded p-4 shadow shadow-lg flex flex-col"}>
                     <p className={'font-bold text-lg my-2'}>Resources</p>
+                    <div className={'m-2 bg-violet-500 font-bold text-white hover:bg-violet-400 cursor-pointer p-2 border-white border-2'}><a target="_blank" rel="noopener noreferrer" href={'https://ucarecdn.com/75fb11e3-fd46-48ad-b914-4128f45106ce/MapletonDistrictScienceFairFlyer.pdf'}>District Fair Flyer</a></div>
                     <div className={'m-2 bg-blue-500 font-bold text-white hover:bg-blue-400 cursor-pointer p-2 border-white border-2'}><a target="_blank" rel="noopener noreferrer" href={'https://ucarecdn.com/83bc9586-210b-49b8-bcc3-06bb92dcdcc3/ScienceFairRules.pdf'}>Science Fair Rules</a></div>
+                    <div className={'m-2 bg-blue-400 font-bold text-white hover:bg-blue-300 cursor-pointer p-2 border-white border-2'}><a target="_blank" rel="noopener noreferrer" href={'https://ucarecdn.com/e8a792f4-5fa9-46dd-a4f6-c2c9dbc64ef3/ScienceFairRulesSpanish.docx'}>Science Fair Rules (Spanish)</a></div>
                     <div className={'m-2 bg-blue-500 font-bold text-white hover:bg-blue-400 cursor-pointer p-2 border-white border-2'}><a target="_blank" rel="noopener noreferrer" href={'https://ucarecdn.com/a1bf6f07-2bba-475c-becc-90fbf96afd47/ElementaryStudentPacket.pdf'}>Elementary Packet</a></div>
+                    <div className={'m-2 bg-blue-400 font-bold text-white hover:bg-blue-300 cursor-pointer p-2 border-white border-2'}><a target="_blank" rel="noopener noreferrer" href={'https://ucarecdn.com/f8c0dc5a-4ac8-4b1a-8d74-d73b3732afb5/ElementaryStudentPacketSpanish.pdf'}>Elementary Packet (Spanish)</a></div>
                     <div className={'m-2 bg-blue-500 font-bold text-white hover:bg-blue-400 cursor-pointer p-2 border-white border-2'}><a target="_blank" rel="noopener noreferrer" href={'https://ucarecdn.com/5a76c28e-60a2-4ebe-b3d4-ca6aa543376f/PrintableScienceFairRubric.docx'}>Printable Rubric</a></div>
+                    <div className={'m-2 bg-blue-400 font-bold text-white hover:bg-blue-300 cursor-pointer p-2 border-white border-2'}><a target="_blank" rel="noopener noreferrer" href={'https://ucarecdn.com/2be16533-2008-4684-ac26-14d94c2a7fe9/ScienceFairRubricSpanish.docx'}>Printable Rubric (Spanish)</a></div>
                     <div className={'m-2 bg-blue-500 font-bold text-white hover:bg-blue-400 cursor-pointer p-2 border-white border-2'}><a target="_blank" rel="noopener noreferrer" href={'https://ucarecdn.com/6b147f25-d475-4600-8003-c8fa1e6bdf08/K2ScienceFairRubric.docx'}>K-2 Rubric</a></div>
+                    <div className={'m-2 bg-blue-400 font-bold text-white hover:bg-blue-300 cursor-pointer p-2 border-white border-2'}><a target="_blank" rel="noopener noreferrer" href={'https://ucarecdn.com/2c0efccc-975a-42b6-b42b-5f724f5decd4/K2RubricSpanish.docx'}>K-2 Rubric (Spanish</a></div>
 
 
                 </div>
