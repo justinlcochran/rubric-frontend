@@ -14,6 +14,10 @@ import {Amplify} from 'aws-amplify';
 import awsconfig from './aws-exports';
 import { withAuthenticator } from '@aws-amplify/ui-react';
 import {UserContextProvider} from "./context/userContext";
+import JudgeHome from "./pages/judgeHome";
+import ScoreLookup from "./pages/scoreLookup";
+import WinnerReports from "./pages/winnerReports";
+import CheckIn from "./pages/checkIn";
 
 Amplify.configure(awsconfig)
 
