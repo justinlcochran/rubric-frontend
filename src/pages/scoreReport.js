@@ -81,7 +81,7 @@ function ScoreReport(props) {
                                 <h1 className={'mb-2 text-white select-none text-3xl'}>I</h1>
                                 <div className={`mx-auto`}>
                                     {data.filter(obj => obj.type === "I").filter(obj => !obj.check).filter(obj => obj.scores.length === 0).filter(obj => obj.gradeBand === item).map((obj, index) => <ReportCard
-                                        projectData={obj} score={obj.scores.reduce((acc, score) => acc + score, 0) / obj.scores.length} evals={obj.rubrics} ind={index}/>)}
+                                        projectData={obj} score={'x'} evals={obj.rubrics} ind={index}/>)}
                                 </div>
                             </div>
                             <div>
