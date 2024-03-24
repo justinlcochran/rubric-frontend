@@ -2,8 +2,9 @@ import React from 'react';
 
 function Loader(props) {
     return (
-        <div className="flex justify-center items-center h-full mx-auto my-8">
-            <div className="border-t-4 border-b-4 border-white h-6 w-6 rounded-full animate-spin mx-auto"></div>
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+            {/* Loader */}
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-300"></div>
         </div>
     );
 }

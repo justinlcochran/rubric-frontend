@@ -24,14 +24,14 @@ function App() {
           <UserContextProvider>
           <ScoreProvider>
               <Routes>
-                <Route path='/score23/:projectNumber'  element={<Home />} />
-                <Route path='/' exact element={<Splash />}/>
-                <Route path='/preview' element={<Preview />}/>
-                <Route path='/report23/' element={<ScoreReport />}/>
-                <Route path='/judgemps23/' element={<Landing />}/>
-                <Route path='/pe' element={<ProjectEntry />}/>
-                <Route path='/ai' element={<OpenaiIntegrationTesting />}/>
-                <Route path='/teacher' element={<TeacherHome />} />
+                  <Route path='/' exact element={<Splash />}/>
+                  <Route path='/preview' element={<Preview />}/>
+                  <Route path='/report24/' element={<ScoreReport />}/>
+                  <Route path='/judgeHome/:email' element={<JudgeHome />}/>
+                  <Route path='/teacher' element={<TeacherHome />} />
+                  <Route path='/scoreLookup/:projectNumber' element={<ScoreLookup />} />
+                  <Route path='/slides' element={<WinnerReports />} />
+                  <Route path='/checkin24jnp' element={<CheckIn />} />
               </Routes>
           </ScoreProvider>
           </UserContextProvider>
