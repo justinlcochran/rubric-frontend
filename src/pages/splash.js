@@ -21,6 +21,7 @@ function Splash() {
     const teacherNav = () => {
         navigate('/teacher')
     }
+
     const scheduleNav = () => {
         navigate('/schedule')
     }

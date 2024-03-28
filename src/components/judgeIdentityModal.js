@@ -38,6 +38,26 @@ function JudgeIdentityModal({ judgeIdModal, setJudgeIdModal }) {
         'devon.conradson@cuanschutz.edu'
     ]
 
+    const teacherEmailArr = [
+        'garciar@mapleton.us',
+        'klaverm@mapleton.us',
+        'simonm@mapleton.us',
+        'garrisonl@mapleton.us',
+        'spitlerd@mapleton.us',
+        'deangelism@mapleton.us',
+        'kellya@mapleton.us',
+        'abergosj@apleton.us',
+        'rosenthall@mapleton.us',
+        'grahams@mapleton.us',
+        'johnsonr@mapleton.us',
+        'ioc@mapleton.us',
+        'goodmanj@mapleton.us',
+        'cernad@mapleton.us',
+        'atomodeb@mapleton.us',
+        'hartmans@mapleton.us',
+        'craddocky@mapleton.us'
+    ]
+
     const handleClose = (e) => {
         if ( e.target.id === "wrapper" ) onClose();
     }
@@ -49,8 +69,10 @@ function JudgeIdentityModal({ judgeIdModal, setJudgeIdModal }) {
     const handleJudgeNav = () => {
         if (hardEmailArr.includes(email.toLowerCase())) {
             navigate(`/judgeHome/${email}`)
+        } else if (teacherEmailArr.includes(email.toLowerCase())) {
+            navigate(`/teacherTaskList/${email}`);
         } else {
-            navigate('/preview');
+            navigate('/preview')
         }
     }
 

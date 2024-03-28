@@ -19,6 +19,7 @@ import ScoreLookup from "./pages/scoreLookup";
 import WinnerReports from "./pages/winnerReports";
 import CheckIn from "./pages/checkIn";
 import Schedule from "./pages/schedule";
+import TeacherTaskList from "./pages/teacherTaskList";
 
 Amplify.configure(awsconfig)
 
@@ -38,6 +39,7 @@ function App() {
                   <Route path='/slides' element={<WinnerReports />} />
                   <Route path='/checkin24jnp' element={<CheckIn />} />
                   <Route path='/schedule' element={<Schedule />} />
+                  <Route path='teacherTaskList/:email' element={<TeacherTaskList />} />
               </Routes>
           </ScoreProvider>
           </UserContextProvider>

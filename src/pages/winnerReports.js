@@ -5,7 +5,7 @@ function WinnerReports(props) {
     const [projects, setProjects] = useState(null);
     const [isVisible, setIsVisible] = useState(false);
 
-    const getJudgeContext = async () => {
+    const getWinners = async () => {
         try {
             let url = new URL('https://c1gqgecccj.execute-api.us-east-1.amazonaws.com/dev/getWinnerSlides')
             const response = await fetch(url);
@@ -106,6 +106,11 @@ function WinnerReports(props) {
             return char.toUpperCase();
         });
     }
+    useEffect(() => {
+        getWinners();
+    }, [])
+
+    console.log(projects)
 
      return (
         <div className={'h-full bg-violet-900 h-screen p-14 overflow-hidden'}>
