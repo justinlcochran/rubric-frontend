@@ -144,6 +144,7 @@ function CheckIn(props) {
                 {(checks) && checks.projects.map((item, index) => (item.check) ?
                     <div className={'bg-blue-400 text-black border-amber-400 border-2 rounded w-fit p-2 mx-auto flex flex-col gap-2'}>
                         <p className={'font-bold'}>{item.name}</p>
+                        <p>{item.projectNumber}</p>
                         <p>{renderStudentList(item.students)}</p>
                         <div className={'font-bold text-gray-600 select-none w-fit rounded p-1 mx-auto'}>Checked In</div>
                     </div>
