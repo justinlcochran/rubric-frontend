@@ -48,6 +48,7 @@ function JudgeHome(props) {
                         tempJudgeContext.tasks[project.index].completion = score
                         setSubmission({})
                         setProject(null)
+                        setIsLoading(false)
                     } else {
                         e.preventDefault()
                         setIsLoading(false);
