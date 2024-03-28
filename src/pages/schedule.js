@@ -18,6 +18,18 @@ function Schedule(props) {
                 }
             )
     }, [])
+    function getBackgroundColor(category) {
+        switch (category) {
+            case 'K-2':
+                return 'rgba(255, 192, 203, 0.5)'; // Soft pink
+            case '3-4':
+                return 'rgba(255, 255, 153, 0.5)'; // Soft yellow
+            case '5-6':
+                return 'rgba(173, 216, 230, 0.5)'; // Soft blue
+            default:
+                return 'rgba(144, 238, 144, 0.5)'; // Soft green
+        }
+    }
 
     const homeNav = () => {
         navigate('/')
@@ -46,7 +58,8 @@ function Schedule(props) {
                                 className={'mb-4'}>Presenting at {round[1]}</p>
                                 <div className={'flex flex-wrap justify-between'}>
                                     {data.filter(project => project.schedule === round[0]).sort((a, b) => a.projectNumber - b.projectNumber).map(project =>
-                                        <div className={'flex flex-col p-4 text-sm bg-blue-200 m-1 rounded w-[30%]'}>
+                                        <div className={'flex flex-col p-4 text-sm m-1 rounded w-[30%] shadow   '} style={{ backgroundColor: getBackgroundColor(project.category) }}>
+
                                             <p className={'mx-auto font-bold text-lg'}>{project.projectNumber}</p>
 
                                             <p className={'my-auto mx-auto'}>{project.name}</p>

@@ -55,7 +55,8 @@ function JudgeIdentityModal({ judgeIdModal, setJudgeIdModal }) {
         'cernad@mapleton.us',
         'atomodeb@mapleton.us',
         'hartmans@mapleton.us',
-        'craddocky@mapleton.us'
+        'craddocky@mapleton.us',
+        'shadleyb@mapleton.us'
     ]
 
     const handleClose = (e) => {

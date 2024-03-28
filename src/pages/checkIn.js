@@ -150,6 +150,7 @@ function CheckIn(props) {
                     :
                     <div className={'rounded p-2 bg-amber-200 border-amber-400 border-2 text-gray-900 shadow flex flex-col gap-2'}>
                         <p className={'font-bold'}>{item.name}</p>
+                        <p>{item.projectNumber}</p>
                         <p>{renderStudentList(item.students)}</p>
                         <div onClick={() => putCheckIn(item, index)} className={'bg-blue-200 border-white border-2 select-none cursor-pointer w-fit rounded p-1 mx-auto hover:bg-blue-300'}>Check In</div>
                     </div>)}
