@@ -15,7 +15,7 @@ function CheckIn(props) {
     }
 
     const putCheckIn = async (item, index) => {
-        if (Object.keys(item).includes('email')) {
+        if (Object.keys(item).includes('email') && Object.keys(item).includes('firstName')) {
             const url = new URL(`https://c1gqgecccj.execute-api.us-east-1.amazonaws.com/dev/putCheckIn`)
             fetch(url, {
                 method: 'PUT',
@@ -24,6 +24,27 @@ function CheckIn(props) {
                 },
                 body: JSON.stringify({
                     type: 'Judge',
+                    email: item.email
+                }),
+            })
+                .then(res => res.json())
+                .then(
+                    async (result) => {
+                        let tempChecks = {...checks}
+                        tempChecks.judges[index].check = true
+                        setChecks(tempChecks)
+                        window.alert('Submitted Successfully')
+                    }
+                )
+        } else if (Object.keys(item).includes('email')) {
+            const url = new URL(`https://c1gqgecccj.execute-api.us-east-1.amazonaws.com/dev/putCheckIn`)
+            fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    type: 'Teacher',
                     email: item.email
                 }),
             })
