@@ -18,6 +18,7 @@ import JudgeHome from "./pages/judgeHome";
 import ScoreLookup from "./pages/scoreLookup";
 import WinnerReports from "./pages/winnerReports";
 import CheckIn from "./pages/checkIn";
+import Schedule from "./pages/schedule";
 
 Amplify.configure(awsconfig)
 
@@ -36,6 +37,7 @@ function App() {
                   <Route path='/scoreLookup/:projectNumber' element={<ScoreLookup />} />
                   <Route path='/slides' element={<WinnerReports />} />
                   <Route path='/checkin24jnp' element={<CheckIn />} />
+                  <Route path='/schedule' element={<Schedule />} />
               </Routes>
           </ScoreProvider>
           </UserContextProvider>

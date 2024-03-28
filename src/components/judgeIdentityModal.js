@@ -34,7 +34,8 @@ function JudgeIdentityModal({ judgeIdModal, setJudgeIdModal }) {
         'franklinekene.nwachukwu@gmail.com',
         'pax@me.com',
         'sothary.chea@cuanchutz.edu',
-        'Erika.desonie@cuanschutz.edu'
+        'erika.desonie@cuanschutz.edu',
+        'devon.conradson@cuanschutz.edu'
     ]
 
     const handleClose = (e) => {
@@ -46,7 +47,7 @@ function JudgeIdentityModal({ judgeIdModal, setJudgeIdModal }) {
     }
 
     const handleJudgeNav = () => {
-        if (hardEmailArr.includes(email)) {
+        if (hardEmailArr.includes(email.toLowerCase())) {
             navigate(`/judgeHome/${email}`)
         } else {
             navigate('/preview');
@@ -54,9 +55,9 @@ function JudgeIdentityModal({ judgeIdModal, setJudgeIdModal }) {
     }
 
     return (
-        <div className={"fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center flex flex-col z-10"} id="wrapper" onClick={handleClose}>
-            <div className={"flex flex-col"}>
-                <div className={"relative bg-gray-200 p-2 m-4 rounded p-2  max-w-[1200px] min-w-[600px] mx-auto"}>
+        <div className={"fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center flex flex-col z-10 mx-auto"} id="wrapper">
+            <div className={"flex flex-col min-w-[80%]"}>
+                <div className={"relative bg-gray-200 p-2 m-4 rounded p-2 w-full mx-auto"}>
                     <button onClick={onClose} className="absolute -top-6 -right-6 m-2 p-2 w-10 rounded-full bg-red-500 text-dutch_white-400">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <path fill="#fff" d="M14.12 12l5.3-5.3c.59-.59.59-1.54 0-2.12-.59-.59-1.54-.59-2.12 0L12 9.88 6.7 4.58c-.59-.59-1.54-.59-2.12 0-.59.59-.59 1.54 0 2.12L9.88 12l-5.3 5.3c-.59.59-.59 1.54 0 2.12.59.59 1.54.59 2.12 0L12 14.12l5.3 5.3c.59.59 1.54.59 2.12 0 .59-.59.59-1.54 0-2.12L14.12 12z"/>

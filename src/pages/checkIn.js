@@ -94,6 +94,26 @@ function CheckIn(props) {
             <div className={'flex flex-col gap-6 bg-blue-800 border-white border-2 px-8 py-2'}>
                 <div className={'flex'}>
                     <div className={'grow'} />
+                    <p className={'text-3xl font-bold'}>Teachers</p>
+                    <div className={'grow'} />
+                    {(checks) && <p className={'my-auto'}>{checks.teachers.filter(item => (item.check)).length} / {checks.teachers.length}</p>}
+                    <div className={'grow'} />
+                </div>
+                {(checks) && checks.teachers.map((item, index) => (item.check) ?
+                    <div className={'bg-blue-400 text-black border-amber-400 border-2 rounded w-full p-2 mx-auto flex flex-col gap-2'}>
+                        <p className={'font-bold text-lg'}>{item.email}</p>
+                        <div className={'font-bold text-gray-600 select-none w-fit rounded p-1 mx-auto'}>Checked In</div>
+                    </div>
+                    :
+                    <div className={'bg-amber-200 text-black border-amber-400 border-2 rounded w-full p-2 mx-auto flex flex-col gap-2'}>
+                        <p className={'font-bold text-lg'}>{item.email}</p>
+                        <div onClick={() => putCheckIn(item, index)} className={'bg-blue-200 border-white border-2 select-none cursor-pointer w-fit rounded p-1 mx-auto hover:bg-blue-300'}>Check In</div>
+                    </div>)}
+            </div>
+            <div className={'grow'} />
+            <div className={'flex flex-col gap-6 bg-blue-800 border-white border-2 px-8 py-2'}>
+                <div className={'flex'}>
+                    <div className={'grow'} />
                     <p className={'text-3xl font-bold'}>Judges</p>
                     <div className={'grow'} />
                     {(checks) && <p className={'my-auto'}>{checks.judges.filter(item => (item.check)).length} / {checks.judges.length}</p>}
