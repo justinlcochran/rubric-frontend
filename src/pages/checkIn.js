@@ -52,7 +52,7 @@ function CheckIn(props) {
                 .then(
                     async (result) => {
                         let tempChecks = {...checks}
-                        tempChecks.judges[index].check = true
+                        tempChecks.teachers[index].check = true
                         setChecks(tempChecks)
                         window.alert('Submitted Successfully')
                     }
